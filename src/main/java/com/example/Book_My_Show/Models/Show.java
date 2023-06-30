@@ -1,22 +1,26 @@
 package com.example.Book_My_Show.Models;
 
-import com.example.Book_My_Show.Enums.SeatType;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalTime;
+import java.util.Date;
 
 @Entity
-@Table(name = "theater_Seats")
+@Table(name = "shows")
 @Data
-public class TheaterSeat {
+public class Show {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int showId;
 
-    private String seatNo;
+    private LocalTime time;
 
-    @Enumerated(value = EnumType.STRING)
-    private SeatType seatType;
+    private Date date;
+
+    @ManyToOne
+    @JoinColumn
+    private Movie movie;
 
     @ManyToOne
     @JoinColumn
