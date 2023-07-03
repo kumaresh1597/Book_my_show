@@ -23,6 +23,8 @@ public class ShowSeat {
 
     private boolean isFoodAttached;
 
+    private int foodPrice;
+
     @ManyToOne
     @JoinColumn
     private Show show;

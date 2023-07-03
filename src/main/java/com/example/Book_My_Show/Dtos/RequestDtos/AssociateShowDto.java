@@ -7,4 +7,5 @@ public class AssociateShowDto {
     private int showId;
     private int classicPrice;
     private int premiumPrice;
+    private int foodPrice;
 }

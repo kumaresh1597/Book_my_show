@@ -79,6 +79,7 @@ public class ShowService {
             }
             showSeat.setAvailable(true);
             showSeat.setFoodAttached(false);
+            showSeat.setFoodPrice(associateShowDto.getFoodPrice());
             showSeat.setShow(show);
 
             showSeatList.add(showSeat);
