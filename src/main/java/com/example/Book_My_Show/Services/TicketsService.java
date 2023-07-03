@@ -14,6 +14,8 @@ import com.example.Book_My_Show.Repository.TicketRepository;
 import com.example.Book_My_Show.Repository.UserRepository;
 import com.example.Book_My_Show.Transformers.TicketTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,6 +30,9 @@ public class TicketsService {
     private ShowRepository showRepository;
     @Autowired
     private TicketRepository ticketRepository;
+
+    @Autowired
+    private JavaMailSender emailSender;
     public TicketResponseDto bookTickets(TicketRequestDto ticketRequestDto) throws ShowNotFoundException, UserNotFoundException, TicketNotAvailableException {
         Optional<User> userOptional = userRepository.findById(ticketRequestDto.getUserId());
         if(userOptional.isEmpty()) throw new UserNotFoundException("Invalid User Id");
@@ -64,6 +69,33 @@ public class TicketsService {
 
         TicketResponseDto ticketResponseDto = TicketTransformer.createTicketResponseDto(ticket);
 
+        int noOfTickets = ticketRequestDto.getRequestedSeats().size();
+
+        String body = "Hi !!"+user.getName()+"\n"+
+                "Your booking is confirmed!\n"+
+                "Booking Id: "+ticket.getTicketId()+"\n"+
+                "Movie name: "+ticketResponseDto.getMovieName()+" ("+ticket.getShow().getMovie().getLanguage()+")\n"+
+                "Show Date & time: "+ticketResponseDto.getShowTime()+" | "+ticketResponseDto.getShowDate()+"\n"+
+                "Theater Name: "+ticketResponseDto.getTheaterName()+"\n"+
+                "Location: "+ticket.getShow().getTheater().getLocation()+"\n"+
+                "\n"+
+                "No of tickets: "+noOfTickets+"\n"+
+                "Confirmed seats: "+ticketResponseDto.getBookedSeats()+"\n"+
+                "\n"+
+                "Ticket Amount: "+ticketResponseDto.getTotalPrice()+" ("+noOfTickets+" tickets)"+"\n"+
+                "\n"+
+                "Thank you for using book my show, its our pleasure to serve you \n"+
+                "\n"+
+                "Enjoy your Movie!!";
+
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setFrom("forspring587@gmail.com");
+        mailMessage.setTo(user.getEmail());
+        mailMessage.setSubject("Ticket Booking successful!!");
+        mailMessage.setText(body);
+
+        emailSender.send(mailMessage);
+
         return ticketResponseDto;
     }
 
@@ -72,6 +104,7 @@ public class TicketsService {
     private int calcuateTicketPrice(Show show, TicketRequestDto ticketRequestDto) {
         List<ShowSeat> showSeatList = show.getShowSeatList();
         int price = 0;
+      //  System.out.println(ticketRequestDto.getIsFoodAttach());
         for(ShowSeat showSeat: showSeatList){
             if(ticketRequestDto.getRequestedSeats().contains(showSeat.getSeatNo())){
                 showSeat.setAvailable(false);
