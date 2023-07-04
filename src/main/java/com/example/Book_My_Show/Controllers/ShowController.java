@@ -2,12 +2,15 @@ package com.example.Book_My_Show.Controllers;
 
 import com.example.Book_My_Show.Dtos.RequestDtos.AssociateShowDto;
 import com.example.Book_My_Show.Dtos.RequestDtos.ShowEntryDto;
+import com.example.Book_My_Show.Dtos.RequestDtos.ShowsOnDateDto;
+import com.example.Book_My_Show.Models.Show;
 import com.example.Book_My_Show.Services.ShowService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/shows")
@@ -33,4 +36,16 @@ public class ShowController {
             return e.getMessage();
         }
     }
+
+    @GetMapping("/getShowsOfParticularTheaterAndMovieOnGivenDate")
+    public List<LocalTime> getshowsOfParticularTheaterandMovieOngivenDate(@RequestBody ShowsOnDateDto showsOnDateDto){
+        try {
+            List<LocalTime> showTimings = showService.getShowsOfParticularTheaterAndMovieOnGivenDate(showsOnDateDto);
+            return showTimings;
+        }catch (Exception e){
+            System.out.println("not excecuted");
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
 }

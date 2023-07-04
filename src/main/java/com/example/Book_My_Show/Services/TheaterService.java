@@ -2,14 +2,19 @@ package com.example.Book_My_Show.Services;
 
 import com.example.Book_My_Show.Dtos.RequestDtos.TheaterEntryDto;
 import com.example.Book_My_Show.Dtos.RequestDtos.TheaterSeatEntryDto;
+import com.example.Book_My_Show.Dtos.RequestDtos.TheaterTimeRequestDto;
+import com.example.Book_My_Show.Dtos.ResponseDtos.TheaterResponseDto;
 import com.example.Book_My_Show.Enums.SeatType;
+import com.example.Book_My_Show.Models.Show;
 import com.example.Book_My_Show.Models.Theater;
 import com.example.Book_My_Show.Models.TheaterSeat;
+import com.example.Book_My_Show.Repository.ShowRepository;
 import com.example.Book_My_Show.Repository.TheaterRepository;
 import com.example.Book_My_Show.Transformers.TheaterTransformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,6 +22,8 @@ public class TheaterService {
 
     @Autowired
     TheaterRepository theaterRepository;
+    @Autowired
+    private ShowRepository showRepository;
     public String addTheater(TheaterEntryDto theaterEntryDto) {
         Theater theater = TheaterTransformers.convertTheaterDtoToEntity(theaterEntryDto);
         theaterRepository.save(theater);
@@ -93,5 +100,16 @@ public class TheaterService {
         theaterRepository.save(theater);
 
         return "Theater Seats have been successfully added";
+    }
+
+    public List<TheaterResponseDto> getTheatersAtParticularTime(TheaterTimeRequestDto theaterTimeRequestDto) {
+        List<Show> showList = showRepository.findAll();
+        List<TheaterResponseDto> theaterResponseDtoList = new ArrayList<>();
+        for(Show show : showList){
+            if(show.getTime().equals(theaterTimeRequestDto.getTime())){
+                theaterResponseDtoList.add(TheaterTransformers.createTheaterResponseDto(show));
+            }
+        }
+        return theaterResponseDtoList;
     }
 }

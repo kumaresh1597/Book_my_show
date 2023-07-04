@@ -2,6 +2,7 @@ package com.example.Book_My_Show.Services;
 
 import com.example.Book_My_Show.Dtos.RequestDtos.AssociateShowDto;
 import com.example.Book_My_Show.Dtos.RequestDtos.ShowEntryDto;
+import com.example.Book_My_Show.Dtos.RequestDtos.ShowsOnDateDto;
 import com.example.Book_My_Show.Enums.SeatType;
 import com.example.Book_My_Show.Exceptions.MovieNotFoundException;
 import com.example.Book_My_Show.Exceptions.ShowNotFoundException;
@@ -15,6 +16,8 @@ import com.example.Book_My_Show.Transformers.ShowTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -90,5 +93,29 @@ public class ShowService {
 
 
         return "Show seats are successfully added to theater seats";
+    }
+
+    public List<LocalTime> getShowsOfParticularTheaterAndMovieOnGivenDate(ShowsOnDateDto showsOnDateDto) throws MovieNotFoundException,TheaterNotFoundException{
+
+        Optional<Movie> movieOptional = movieRepository.findById(showsOnDateDto.getMovieId());
+        if(movieOptional.isEmpty()){
+            throw new MovieNotFoundException("Movie not Found");
+        }
+        Optional<Theater> theaterOptional = theaterRepository.findById(showsOnDateDto.getTheaterId());
+        if(theaterOptional.isEmpty()){
+            throw new TheaterNotFoundException("Theater not Found");
+        }
+
+        Movie movie = movieOptional.get();
+        Theater theater = theaterOptional.get();
+
+        List<Show> showList = movie.getShowList();
+        List<LocalTime> showTimings = new ArrayList<>();
+        for(Show show : showList){
+            if((showsOnDateDto.getDate().compareTo(show.getDate()) == 0) && show.getTheater().equals(theater)){
+                showTimings.add(show.getTime());
+            }
+        }
+        return showTimings;
     }
 }
