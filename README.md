@@ -17,5 +17,8 @@ Spring Boot,JPA,Hibernate,MySQL,Java,Maven
 Postman,Intellij,workbench
 
 # Results
-   # post APIs
+ POST APIs
+ 1) Add user
+  ![Uploading Add User.png…]()
+
 
