@@ -19,6 +19,6 @@ Postman,Intellij,workbench
 # Results
  POST APIs
  1) Add user
-  ![Uploading Add User.png…]()
+  
 
 
