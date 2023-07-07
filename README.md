@@ -38,6 +38,11 @@ Postman,Intellij,workbench
 
   ![Book Tickets](https://github.com/kumaresh1597/Book_my_show/assets/115056892/c4daa576-c998-4533-b2c8-35fb1bd09e33)
 
+ GET APIs
+
+  1) Get shows timings of particular theater and movie on given date
+
+  
 
 
 
