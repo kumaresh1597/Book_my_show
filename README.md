@@ -22,6 +22,11 @@ Postman,Intellij,workbench
 
   ![Add User](https://github.com/kumaresh1597/Book_my_show/assets/115056892/6ad120f4-f08d-4db4-997b-7fc412b95d01)
 
+  2) Add Movie
+
+    ![Add Movie](https://github.com/kumaresh1597/Book_my_show/assets/115056892/f5b580a9-9464-4b95-a807-993b4307f82e)
+
+
 
   
 
