@@ -20,7 +20,8 @@ Postman,Intellij,workbench
  POST APIs
  1) Add user
 
-  ![Add User](https://github.com/kumaresh1597/Book_my_show/assets/115056892/015d7fb7-675f-4645-8242-b02b3a73d7b5)
+  ![Add User](https://github.com/kumaresh1597/Book_my_show/assets/115056892/6ad120f4-f08d-4db4-997b-7fc412b95d01)
+
 
   
 
