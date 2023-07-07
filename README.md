@@ -42,6 +42,29 @@ Postman,Intellij,workbench
 
   1) Get shows timings of particular theater and movie on given date
 
+![Get show timings](https://github.com/kumaresh1597/Book_my_show/assets/115056892/ac67759b-5d91-46de-a3db-064b94d12dc5)
+
+2) Get all tickets booked by a user
+
+![Get all tikets booked by the user](https://github.com/kumaresh1597/Book_my_show/assets/115056892/1406ed28-0e48-45f1-a230-8b8c9b227011)
+
+3) Get all theaters running shows at particular time
+
+![Get all theaters running shows at particular time](https://github.com/kumaresh1597/Book_my_show/assets/115056892/8f4cf904-ab97-4030-8878-9f659aa13b0e)
+
+4) Get movie  with the max shows
+
+![Get movie with max shows](https://github.com/kumaresh1597/Book_my_show/assets/115056892/2d7e14e8-bd58-45dc-99b7-0193d11c8a48)
+
+5) Get total revenue of a particular movie in its lifetime.
+
+![Get revenue of a movie](https://github.com/kumaresh1597/Book_my_show/assets/115056892/e7c85beb-3ca3-4c13-8303-d253ade9a3db)
+
+
+
+
+
+
   
 
 
