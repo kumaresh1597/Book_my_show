@@ -24,9 +24,8 @@ Postman,Intellij,workbench
 
   2) Add Movie
 
-    ![Add Movie](https://github.com/kumaresh1597/Book_my_show/assets/115056892/e15b4f55-2dbd-4f9e-9608-db5d62fd25d5)
+  ![Add Movie](https://github.com/kumaresh1597/Book_my_show/assets/115056892/9d3ceb30-a53c-43bf-b257-961e94a81566)
 
-    ![Add Movie](https://github.com/kumaresh1597/Book_my_show/assets/115056892/c9a45e97-ac53-4b0a-98cf-a18177e79e02)
 
 
 
