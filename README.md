@@ -60,6 +60,12 @@ Postman,Intellij,workbench
 
 ![Get revenue of a movie](https://github.com/kumaresh1597/Book_my_show/assets/115056892/e7c85beb-3ca3-4c13-8303-d253ade9a3db)
 
+DELETE APIs
+1) Cancel Tickets
+
+![cancel tickets](https://github.com/kumaresh1597/Book_my_show/assets/115056892/8e19999a-0bbe-4d6a-95ea-7d5ec695b765)
+
+
 
 
 
