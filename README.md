@@ -26,6 +26,20 @@ Postman,Intellij,workbench
 
   ![Add Movie](https://github.com/kumaresh1597/Book_my_show/assets/115056892/9d3ceb30-a53c-43bf-b257-961e94a81566)
 
+  3) Add Theater
+
+  ![Add theater](https://github.com/kumaresh1597/Book_my_show/assets/115056892/ab229c99-74cd-4101-8d04-f109d6b0ffc4)
+
+  4) Add Shows
+
+  ![Add shows](https://github.com/kumaresh1597/Book_my_show/assets/115056892/4b0e2a77-ba73-4ff5-b25d-d12ab5b2d71f)
+
+  5) Book Tickets
+
+  ![Book Tickets](https://github.com/kumaresh1597/Book_my_show/assets/115056892/c4daa576-c998-4533-b2c8-35fb1bd09e33)
+
+
+
 
 
 
